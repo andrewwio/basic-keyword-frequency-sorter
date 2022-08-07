@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    Hello world
+    <div class="button">
+      <button class="button">Click me</button>
+    </div>
+    <pre id="log"></pre>
+  </div>
+  <script>
+    const button = document.querySelector(".button");
+    const words = document.querySelector(".words")
+
+    button.addEventListener("click", () => {
+      wordFreq();
+    });
+
+
+    function wordFreq() {
+    let string = "What if I wanted to go home tonight but tonight was not the night to be home"
+    var words = string.replace(/[.]/g, '').split(/\s/);
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+
+      });
+      console.log({freqMap});
+    return freqMap;
+
+    }
+
+//     (function () {
+//     var old = console.log;
+//     var logger = document.getElementById('log');
+//     console.log = function () {
+//       for (var i = 0; i < arguments.length; i++) {
+//         if (typeof arguments[i] == 'object') {
+//             logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+//         } else {
+//             logger.innerHTML += arguments[i] + '<br />';
+//         }
+//       }
+//     }
+// })();
+
+  </script>
+</body>
+</html>
